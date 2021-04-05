@@ -1,8 +1,5 @@
 package model.data_structures;
 
-
-//TODO Ambos
-
 public class Node <T extends Comparable> implements Comparable<Node>
 {
 	public T data;
@@ -28,11 +25,8 @@ public class Node <T extends Comparable> implements Comparable<Node>
 		siguiente = primerElemento;
 	}
 
-	
-	/////////////////////////////////////////////////NO LO USAMOS
 	@Override
 	public int compareTo(Node o) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	

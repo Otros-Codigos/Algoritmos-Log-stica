@@ -8,7 +8,6 @@ public class ListaEnlazadaQueue <T extends Comparable<T>> implements Iterable, I
 	private int tamanio;
 	
 	private Node<T> primerNodo;
-	
 	private Node<T> lastNode;
 	
 	public ListaEnlazadaQueue()
@@ -104,8 +103,6 @@ public class ListaEnlazadaQueue <T extends Comparable<T>> implements Iterable, I
 		
 		return eliminado;
 	}
-	
-	/////////////////////////////////////////////////////////
 	
 	public Iterator<T> iterator()
 	{

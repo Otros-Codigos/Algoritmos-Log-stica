@@ -3,25 +3,16 @@ package model.data_structures;
 import java.util.Iterator;
 
 
-//TODO Bobby
-
 public class ListaEnlazadaStack <T extends Comparable> implements IListaEnlazadaStack <T> 
 {
-
-	//Atributos
-	
 	private Node<T> topePila;
 	private int numeroElementos;
-	
-	//Contructor
 	
 	public ListaEnlazadaStack()
 	{
 		topePila = null;
 		numeroElementos = 0;
 	}
-	
-	//Tamaño y primer nodo.
 	
 	public int darTamaño() 
 	{
@@ -32,8 +23,6 @@ public class ListaEnlazadaStack <T extends Comparable> implements IListaEnlazada
 	{
 		return topePila;
 	}
-	
-	//Agregar
 	
 	public void push (T elemento)
 	{
@@ -51,9 +40,7 @@ public class ListaEnlazadaStack <T extends Comparable> implements IListaEnlazada
 		
 		numeroElementos++;
 	}
-	
-	//Eliminar
-	
+
 	public T pop ()
 	{		
 		if (topePila != null)
@@ -72,8 +59,7 @@ public class ListaEnlazadaStack <T extends Comparable> implements IListaEnlazada
 			return null;
 		}
 	}
-	
-	//Esta vacia
+
 	public boolean isEmpty()
 	{
 		boolean vacia = true;
@@ -85,8 +71,6 @@ public class ListaEnlazadaStack <T extends Comparable> implements IListaEnlazada
 		
 		return vacia; 
 	}
-	
-	//No lo uso
 	
 	public Iterator<T> iterator() {
 		return null;

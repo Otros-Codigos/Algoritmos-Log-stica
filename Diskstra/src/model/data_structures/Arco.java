@@ -2,9 +2,9 @@ package model.data_structures;
 
 public class Arco implements Comparable<Arco> {
 	
-	private transient Vertice inicial; 				//Donde empieza
-	private transient Vertice ifinal;				//Donde termina
-	private double costoHaversiano;					//Peso
+	private transient Vertice inicial; 				
+	private transient Vertice ifinal;				
+	private double costoHaversiano;					
 	private long cantidad;
 	
 	public Arco()
@@ -67,8 +67,5 @@ public class Arco implements Comparable<Arco> {
 		else return 0;
 		
 	}
-	
-	// TODO JUANJO
-
 	
 }

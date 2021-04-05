@@ -13,7 +13,7 @@ public class Main {
 	public final static String VERTICES= "./data/vertices.txt";
 	
 	private static Modelo modelo = new Modelo();
-	private static GoogleMap goog = new GoogleMap();
+	// private static GoogleMap goog = new GoogleMap();
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException 
 	{
@@ -28,14 +28,14 @@ public class Main {
 		System.out.println("--- CAMINO MÁS CORTO --- ");
 		System.out.println("---------------------------------------");
 		
-		Graph mapita = modelo.SPDosUbicaciones(3, 4);
-		ArrayList<Integer> vertices = modelo.darVerticesDelGrafo();
+		 Graph mapita = modelo.SPDosUbicaciones(1, 16);
+		// ArrayList<Integer> vertices = modelo.darVerticesDelGrafo();
 		
-		System.out.println("---------------------------------------");
-		System.out.println("--- PINTANDO GRAFO --- ");
-		System.out.println("---------------------------------------");
+		// System.out.println("---------------------------------------");
+		// System.out.println("--- PINTANDO GRAFO --- ");
+		// System.out.println("---------------------------------------");
 		
-		goog.imprmirElMejorGrafoDeLaHistoria(mapita, vertices);
+		// goog.imprmirElMejorGrafoDeLaHistoria(mapita, vertices);
 		
 	}
 }

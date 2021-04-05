@@ -2,22 +2,13 @@ package model.data_structures;
 
 public class MaxHeapCP <T extends Comparable<T>>
 {
-	//Atributos
-	
 	private T[] arregloHeap;
 	private int tamañoHeap;
-	
-	
-	//Constructor
-	
 	public MaxHeapCP(int tam)
 	{
 		tamañoHeap = 0;
 		arregloHeap = (T[]) new Comparable[tam+1];
 	}
-	
-	
-	//Devoluciones
 	
 	public int darTamaño()
 	{
@@ -28,9 +19,7 @@ public class MaxHeapCP <T extends Comparable<T>>
 	{
 		return arregloHeap;
 	}
-	
-	//Dinamismo 
-	
+
 	public void verificarHeapTamaño()
 	{
 		if(arregloHeap.length-1 == tamañoHeap)
@@ -46,11 +35,9 @@ public class MaxHeapCP <T extends Comparable<T>>
 		}
 	}
 	
-	//Necesario general
-	
 	private boolean less (int pos1, int pos2)
 	{
-		return arregloHeap[pos1].compareTo(arregloHeap[pos2]) < 0;    ////////////TODO JUANJO
+		return arregloHeap[pos1].compareTo(arregloHeap[pos2]) < 0;
 	}
 	
 	private void exchange (int pos1, int pos2)
@@ -59,9 +46,7 @@ public class MaxHeapCP <T extends Comparable<T>>
 		arregloHeap[pos1] = arregloHeap[pos2];
 		arregloHeap[pos2] = tempo;
 	}
-	
-	//Subir
-	
+
 	public void swim (int k)
 	{
 		while (k > 1 && less(k/2, k))
@@ -70,18 +55,14 @@ public class MaxHeapCP <T extends Comparable<T>>
 			k = k/2;
 		}
 	}
-	
-	//Añadir
-	
+
 	public void añadir (T elem)
 	{
 		verificarHeapTamaño();
 		arregloHeap[++tamañoHeap] = elem;
 		swim(tamañoHeap);
 	}
-	
-	//Bajar
-	
+
 	private void sink (int k)
 	{
 		while (2*k <= tamañoHeap)
@@ -102,9 +83,7 @@ public class MaxHeapCP <T extends Comparable<T>>
 			k = j;
 		}
 	}
-	
-	//Eliminar Máx
-	
+
 	public T devolverMax ()
 	{
 		T max = arregloHeap[1];
@@ -117,16 +96,12 @@ public class MaxHeapCP <T extends Comparable<T>>
 		
 		return max;
 	}
-	
-	//Dar el máximo
-	
+
 	public T darMax()
 	{
 		return arregloHeap[1];
 	}
-	
-	//Heap Vacia
-	
+
 	public boolean esVacia()
 	{
 		boolean vacio = false;
@@ -138,7 +113,6 @@ public class MaxHeapCP <T extends Comparable<T>>
 		
 		return vacio;
 	}
-
 
 	public boolean isEmpty() {
 		return tamañoHeap == 0;

@@ -1,5 +1,4 @@
 
-
 public class Stopwatch 
 {
 	private final long start;

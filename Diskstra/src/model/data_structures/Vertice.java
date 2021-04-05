@@ -5,21 +5,13 @@ import java.util.Iterator;
 
 public class Vertice <K extends Comparable<K>, V extends Comparable<V>> implements Comparable
 {
-	//Declaración
-	
 	private K id;
 	private V informacion; 
-	
-	//Asignar sus cercanos a el.
 	private int match;
 
-	
 	private ArrayList<Arco> vecinos;
-	
 	private int visitado;
 
-	//Constructor
-	
 	public Vertice(K ID, V pInfo)
 	{
 		vecinos = new ArrayList<Arco>();
@@ -29,8 +21,6 @@ public class Vertice <K extends Comparable<K>, V extends Comparable<V>> implemen
 		visitado=0;
 		match = 0;
 	}
-	
-	//Dar atributos
 	
 	public K darId()
 	{
@@ -51,19 +41,12 @@ public class Vertice <K extends Comparable<K>, V extends Comparable<V>> implemen
 	{
 		return match;
 	}
-	
-	/////////////////////////////////////////////////////////////////////Metodos
-	
-	// Cambiar la info de un vertice,.
-	
+
 	public void cambiarInfo(V nuevaInfo)
 	{
 		informacion = nuevaInfo;
 	}
-	
-	
-	// Agregar, verificar, contar y eliminar los vecinos de un vertice.
-	
+
 	public void agregarArco(Arco v)
 	{
 		vecinos.add(v);
@@ -88,12 +71,7 @@ public class Vertice <K extends Comparable<K>, V extends Comparable<V>> implemen
 	{
 		return vecinos.iterator();
 	}
-	
-	// Verificar, desmarcar y marcar como visitido.
-	
-							// 0 es False
-							// 1 es True
-	
+
 	public boolean revisarVisitado()
 	{
 		if(visitado==0)
@@ -120,18 +98,13 @@ public class Vertice <K extends Comparable<K>, V extends Comparable<V>> implemen
 		id = ID;
 	}
 	
-	// Cantidad de cercanos que tiene.
-	
 	public void aumentarMatch()
 	{
 		match++;
 	}
 	
-	//////////////////////////////////////////////NO LO USAMOS
-	
 	@Override
 	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

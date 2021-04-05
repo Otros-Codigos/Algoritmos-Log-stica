@@ -21,13 +21,8 @@ public class GoogleMap {
 		TablaHashSondeoLineal vertex = base.vertis;
 		ListaEnlazadaQueue arcos = base.arcos;
 
-		// Color de los vertices
 		String colVerti = darColorAleatorio();
-
-		// Color de los arcos
 		String colArco = darColorAleatorio();
-
-		// Vamos a generar el archivo de los vertices.
 
 		try 
 		{
@@ -62,8 +57,6 @@ public class GoogleMap {
 		catch (Exception e){
 			e.printStackTrace();
 		}
-
-		// Vamos a generar el archivo de los arcos.
 
 		try 
 		{
@@ -112,7 +105,6 @@ public class GoogleMap {
 			e.printStackTrace();
 		}
 		
-		// Abre el mapa
 		abrirArchivo();
 
 	}

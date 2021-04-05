@@ -39,9 +39,8 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		return E;
 	}
 
-	///////////////////////////////////////////////////////////////////// Metodos
+	// ....................................................................... Metodos
 
-	//Agregar arco
 	public void addEdge (K idVerticeInicial, K idVerticeFinal, double cost)
 	{
 		
@@ -51,10 +50,10 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 			Vertice fin = (Vertice) vertis.getSet(idVerticeFinal);
 
 			Arco i_f = new Arco(inicial, fin, cost);
-			Arco f_i = new Arco(fin, inicial, cost);
+			// Arco f_i = new Arco(fin, inicial, cost);
 
 			inicial.agregarArco(i_f);
-			fin.agregarArco(f_i);
+			// fin.agregarArco(f_i);
 			
 			arcos.enqueue(i_f);
 
@@ -62,7 +61,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		}
 	}	
 
-	//Obtener la información de un vertice
 	public V getInfoVertex (K idVertice)
 	{
 		V infoBuscado = null;
@@ -76,8 +74,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		return infoBuscado;
 	}
 
-
-	//Modificar la información de un vertice.
 	public void setInfoVertex (K idVertice, V infoVertice)
 	{
 		if (vertis.contains(idVertice))
@@ -87,7 +83,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		}
 	}
 
-	//Obtener el costo de un arco.
 	public double getCostArc (K idVertexIn, K idVertexFin)
 	{
 
@@ -109,7 +104,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		return costo;
 	}
 
-	//Modificar el costo del arco
 	public void setCostArc (K idVertexIn, K idVertexFin, double cost)
 	{
 		Node<Arco> arqui = arcos.darPrimerElemento();
@@ -127,22 +121,18 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		}
 	}
 
-	//Adicionar un vertice
 	public void addVertex (K idVertex, V infoVertex)
 	{
 		vertis.putInSet(idVertex, infoVertex);
 		V++;
 	}
 
-
-	//Retorna los identificadores de los vertices adjacente a uno especifico.
 	public Iterable <K> adj (K idVertex)
 	{
 		Vertice vertecito = (Vertice) vertis.getSet(idVertex);
 		return (Iterable<K>) vertecito.iterator();
 	}
 
-	//Desmarca todos los vertices del grafo
 	public void uncheck()
 	{
 		Iterator<K> idVertices = vertis.keys();
@@ -156,7 +146,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		}
 	}
 
-	//Depth-first search
 	public void dfs (K s)
 	{
 		//1. Obtenemos el vertice.
@@ -219,8 +208,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		return conectados;	
 	}
 	
-	
-	//Obtiene los vértices alcanzados a partir del vértice idVertex después de la ejecución de los metodos dfs(K) y cc().
 	public Iterator<K> getCC(K idVertex)
 	{
 		ArrayList<Vertice> alcanzados = new ArrayList<Vertice>();
@@ -246,9 +233,6 @@ public class Graph<K extends Comparable<K>,V extends Comparable<V>>
 		
 		return (Iterator<K>) alcanzados.iterator();
 	}
-	
-	
-	///////////////////////////////////////////////////////////////////////////////////Extra
 	
 	public boolean existeVertice(K id)
 	{

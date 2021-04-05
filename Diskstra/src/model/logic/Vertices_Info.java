@@ -2,7 +2,6 @@ package model.logic;
 
 public class Vertices_Info implements Comparable<Vertices_Info>
 {
-
 	private int id;
 	private double longitud;
 	private double latitud;
@@ -44,12 +43,9 @@ public class Vertices_Info implements Comparable<Vertices_Info>
 	{
 		id = nuevo;
 	}
-	
 
-	///////////////////////////////////////////////////////////////NO LOS NECESITAMOS.
 	@Override
 	public int compareTo(Vertices_Info o) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	

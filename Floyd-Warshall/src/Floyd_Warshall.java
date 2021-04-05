@@ -13,14 +13,12 @@ public class Floyd_Warshall
 		distTo = new double[V][V];
 		edgeTo = new DirectedEdge[V][V];
 
-		// initialize distances to infinity
 		for (int v = 0; v < V; v++) {
 			for (int w = 0; w < V; w++) {
 				distTo[v][w] = Double.POSITIVE_INFINITY;
 			}
 		}
 
-		// initialize distances using edge-weighted digraph's
 		for (int v = 0; v < G.V(); v++) {
 
 			for (DirectedEdge e : G.adj(v)) {
@@ -28,7 +26,6 @@ public class Floyd_Warshall
 				edgeTo[e.from()][e.to()] = e;
 			}
 
-			// in case of self-loops
 			if (distTo[v][v] >= 0.0) {
 				distTo[v][v] = 0.0;
 				edgeTo[v][v] = null;
@@ -39,10 +36,9 @@ public class Floyd_Warshall
 
 		for (int i = 0; i < V; i++) {
 
-			// compute shortest paths using only 0, 1, ..., i as intermediate vertices
 			for (int v = 0; v < V; v++) {
 
-				if (edgeTo[v][i] == null) continue;  // optimization
+				if (edgeTo[v][i] == null) continue;  
 
 				for (int w = 0; w < V; w++) {
 					if (distTo[v][w] > distTo[v][i] + distTo[i][w]) {
@@ -51,7 +47,6 @@ public class Floyd_Warshall
 					}
 				}
 
-				// check for negative cycle
 				if (distTo[v][v] < 0.0) {
 					hasNegativeCycle = true;
 					return;

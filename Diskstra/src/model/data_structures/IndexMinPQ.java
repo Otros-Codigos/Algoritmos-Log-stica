@@ -2,17 +2,13 @@ package model.data_structures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
-//Código tomado de: https://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html
-//Copyright © 2000–2019, Robert Sedgewick and Kevin Wayne.
-
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> 
 {
-	private int maxN;        // maximum number of elements on PQ
-	private int n;           // number of elements on PQ
-	private int[] pq;        // binary heap using 1-based indexing
-	private int[] qp;        // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
-	private Key[] keys;      // keys[i] = priority of i
+	private int maxN;        
+	private int n;           
+	private int[] pq;        
+	private int[] qp;        
+	private Key[] keys;      
 
 	public IndexMinPQ(int maxN) {
 		if (maxN < 0) throw new IllegalArgumentException();
@@ -59,9 +55,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
 		exch(1, n--);
 		sink(1);
 		assert min == pq[n+1];
-		qp[min] = -1;        // delete
-		keys[min] = null;    // to help with garbage collection
-		pq[n+1] = -1;        // not needed
+		qp[min] = -1;        
+		keys[min] = null;    
+		pq[n+1] = -1;        
 		return min;
 	}
 
@@ -168,11 +164,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
 	public Iterator<Integer> iterator() { return new HeapIterator(); }
 
 	private class HeapIterator implements Iterator<Integer> {
-		// create a new pq
+
 		private IndexMinPQ<Key> copy;
 
-		// add all elements to copy of heap
-		// takes linear time since already in heap order so no keys move
 		public HeapIterator() {
 			copy = new IndexMinPQ<Key>(pq.length - 1);
 			for (int i = 1; i <= n; i++)

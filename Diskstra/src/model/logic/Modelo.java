@@ -15,13 +15,10 @@ import model.data_structures.Vertice;
 
 public class Modelo 
 {
-	//.. Atributos necesarios para la lectura desde txt
-
 	private Vertice vertiAgregar;
 	private Vertices_Info infoVertice;
 	private ArrayList<Integer> vertices = new ArrayList<>();
 	
-	//.. El grafo, su nombre lo dice todo
 	private Graph grafo = new Graph(1);
 
 	// ...................................................................................LECTURA de TXT 
@@ -93,9 +90,7 @@ public class Modelo
 	}
 
 
-	//////////////////////////////////////////////////////////
-	//////////////////// REQUERIMIENTOS //////////////////////
-	//////////////////////////////////////////////////////////
+	// .......................................................... RUTA MÁS CORTA
 
 
 	public Graph SPDosUbicaciones (int origen, int destino)

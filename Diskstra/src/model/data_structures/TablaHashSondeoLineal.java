@@ -2,20 +2,13 @@ package model.data_structures;
 
 import java.util.Iterator;
 
-// EMPEZAMOS
-
 public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparable<V>> implements ITablaHash<K, V>
 {
-
-	//Atributos
-
 	private int Capacidad;  				
 	private int Datos;						
 
 	private K[] keys;
 	private ListaEnlazadaQueue<V>[] vals;
-
-	//Constructor
 
 	public TablaHashSondeoLineal(int m)
 	{
@@ -25,8 +18,6 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		keys = (K[]) new Comparable[Capacidad];
 		vals = new ListaEnlazadaQueue[Capacidad];
 	}
-
-	///////EXTRA///////
 
 	private int rehashes;
 
@@ -40,29 +31,21 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		return (double)Datos/Capacidad;
 	}
 
-	///////////////////
-
-	//Metodos
-
-	//Tamaño de elementos.
 	public int darDatos()
 	{
 		return Datos;
 	}
 
-	//Capacidad de la tabla
 	public int darCapacidad()
 	{
 		return Capacidad;
 	}
 
-	//Crear codigo de la llave.
 	private int hash(K key)
 	{
 		return (key.hashCode() & 0x7fffffff) % Capacidad;
 	}
 
-	//Redifinir el tamaño de la tabla.
 	private void resize(int cap)
 	{
 		TablaHashSondeoLineal<K, V> temporal = new TablaHashSondeoLineal<K, V>(cap);
@@ -89,7 +72,6 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		this.Datos = temporal.Datos;
 	}
 
-	//Añadir dato a la tabla.
 	@Override
 	public void putInSet(K key, V valor) 
 	{
@@ -138,7 +120,6 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 
 	}
 
-	//Buscar dato en la tabla.
 	@Override
 	public Iterator<V> getSetTotal(K key) 
 	{
@@ -159,13 +140,11 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		return null;
 	}
 
-	//La llave se encuentra en la tabla
 	public boolean contains(K key) 
 	{
 		return  getSetTotal(key) != null;
 	}
 
-	//Eliminar dato de la tabla.
 	@Override
 	public Iterator<V> deleteSet(K key) 
 	{
@@ -239,7 +218,7 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		return listaDeDatos.iterator();
 	}
 
-	///////////////////////////////////////////////////////NUEVO
+	// ................. DEVOLVER EL PRIMERO PARA EL GRAFO !!
 
 	@Override
 	public V getSet(K idGrafo) 
@@ -257,8 +236,4 @@ public class TablaHashSondeoLineal <K extends Comparable<K> ,V extends Comparabl
 		}
 		return null;
 	}
-
-
-
-
 }

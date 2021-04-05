@@ -2,11 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		int V = 7;
+		int V = 18;
 		AdjMatrixEdgeWeightedDigraph G = new AdjMatrixEdgeWeightedDigraph(V);
 
 		double weight = 0.0;
@@ -33,7 +33,7 @@ public class main {
 
 		// Run Floyd-Warshall algorithm
 		Floyd_Warshall spt = new Floyd_Warshall(G);
-
+		
 		// Print all-pairs shortest path distances
 		
 		StdOut.printf("  ");
@@ -49,6 +49,22 @@ public class main {
 			}
 			StdOut.println();
 		}
+		
+		StdOut.println();
+		
+		for (int v = 0; v < G.V(); v++) {
+            for (int w = 0; w < G.V(); w++) {
+                if (spt.hasPath(v, w)) {
+                    StdOut.printf("%d to %d (%5.2f)  ", v, w, spt.dist(v, w));
+                    for (DirectedEdge e : spt.path(v, w))
+                        StdOut.print(e + "  ");
+                    StdOut.println();
+                }
+                else {
+                    StdOut.printf("%d to %d no path\n", v, w);
+                }
+            }
+        }
 
 	}
 
